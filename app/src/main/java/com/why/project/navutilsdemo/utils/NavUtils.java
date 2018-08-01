@@ -26,6 +26,18 @@ public class NavUtils {
 	}
 
 	/**
+	 * 获取状态栏的高度
+	 */
+	public static int getStatusBarHeight(Context context) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+			return resourceId > 0 ? context.getResources().getDimensionPixelSize(resourceId) : 0;
+		} else {
+			return 0;
+		}
+	}
+
+	/**
 	 * 获取底部虚拟导航栏高度
 	 * @param activity
 	 * @return
